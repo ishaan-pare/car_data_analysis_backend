@@ -1,4 +1,3 @@
-from unittest import result
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from utils.QueryProcesser import transform_query, get_result
