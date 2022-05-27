@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-from utils.QueryProcesser import transform_query, get_result
+from utils.QueryProcesser import processor
 from utils.modelPredictions import predict
 import pandas as pd
 import json
@@ -43,8 +43,7 @@ def get_m_attr():
 @cross_origin()
 def query_manager():
     query_str = request.args.get("q")
-    queryDis = transform_query(query_str)
-    result = get_result(queryDis)
+    result = processor(query_str)
 
     return result
 
