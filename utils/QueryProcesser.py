@@ -63,7 +63,7 @@ def get_result(df, query):
         if query[0] == "popular":
             fullC = df.loc[(df["Sales_in_thousands"].max() == df["Sales_in_thousands"])]
             if query[1]!="features":
-                required_col = _pd.get_dummies(fullC[[features[nouns[query[1]]]]])
+                required_col = _pd.get_dummies(fullC[nouns["sales"],[features[nouns[query[1]]]]])
             else:
                 required_col = _pd.get_dummies(fullC[features])
             return required_col
@@ -92,5 +92,5 @@ def get_result(df, query):
             if query[1] == "features":
                 return _pd.get_dummies(a[features])
 
-            return _pd.get_dummies(a[[features[nouns[query[1]]]]])
+            return _pd.get_dummies(a[nouns["sales"],[features[nouns[query[1]]]]])
 
